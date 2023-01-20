@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* reseta valores determinado por padrão no HTML assim evita confusões */
+}
+
+body {
+  background-color: #09090a;
+  color: white;
+
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* justifica o conteudo dentro do Header com um espaço no meio dos itens*/
+  padding: 48px; /* define um preenchimento em todos os lados*/
+}
+
+button {
+  /*=========== preenchimento =============*/
+  padding: 16px /*altura*/ 24px /*largura*/; /*preenche em cima e em baixo */
+  background-color: transparent;
+
+  /*=========== borda =============*/
+  border: 1px solid #8b5cf6;
+  border-radius: 8px; /* arredonda a borda */
+
+  /*========== texto ===========*/
+  color: white;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+
+  /*======== disposição ==========*/
+  display: flex; /* altera os menbros do padrão inline para Flexiveis,  necessário para destravar opções de disposição*/
+  align-items: center; /* precisa do display flex */
+  gap: 12px;
+}
+
+#form-habits {
+  display: flex;
+  padding: 0 48px;
+}
+
+.habits {
+  /*======== disposição ==========*/
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.habit {
+  /*========= tamanho =================*/
+  width: 64px;
+  height: 64px;
+
+  /*========== texto ===========*/
+  font-size: 32px;
+
+  /*======== disposição ==========*/
+  display: flex;
+  align-items: center;
+}
+
+.days {
+  /*======== disposição ==========*/
+  display: flex;
+  gap: 48px;
+  margin-left: 32px;
+}
+
+.day {
+  /*======== disposição ==========*/
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.day div {
+  margin-bottom: 8px;
+
+  /*========== texto ===========*/
+  font-family: "Roboto Mono";
+  font-size: 20px;
+  line-height: 125%;
+  color: #a1a1aa;
+  text-align: center;
+}
+
+input {
+  /*======= configurações iniciais ==========*/
+  appearance: none;
+  -webkit-appearance: none; /* necessário resetar algumas propriedades para liberar as configurações*/
+
+  /*========= tamanho =================*/
+  width: 64px;
+  height: 64px;
+
+  /*=========== borda =============*/
+  border: 2px solid #27272a;
+  border-radius: 8px;
+
+  /*=========== preenchimento =============*/
+  background: #18181b;
+}
+
+/* pseudo - selector */
+input:checked {
+  /*=========== preenchimento =============*/
+  background: #8b5cf6;
+
+  /*=========== borda =============*/
+  border: 2px solid #a78bfa;
+}
+
+/*
+  CSS "folha de estilo em cascata" descreve estilos para 
+  HTML e funciona como uma apresentação de estilo
+
+  através de declarações (Declarations) o CSS dita uma 
+  série de propriedades que um arquivo HTML vai possuir
+  ex:
+  body {
+  background: black;
+  }
+
+  CSS possui a propriedade de cascata (Cascading) que 
+  define que a ultima declaração será a mais relevante
+  ex: 
+  body {
+  background: red;
+  }
+
+  body {
+    background: blue;
+  }
+
+  Temos a propriedade de especificidade (Specifity), 
+  mais forte que a cascada a especificidade define 
+  pesos para diferentes tipos de declarações, levando 
+  em conta as especificidades #id > .class > element
+  ex:
+  #id {}
+
+  >>
+
+  .class {}
+
+  >>
+
+  element {}
+
+  os elementos do HTML seguem um "Box Model" e assim
+  é possivel entender os elementos como caixas com 
+  atributos com conteúdo(Element content), largura (width),
+  altura (height), borda(border), 
+  preenchimento (padding), espaçamento(margin), 
+
+  as propriedades seguem um modelo 
+  top -> right -> bottom -> left
+
+*/

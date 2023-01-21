@@ -54,7 +54,6 @@ function save() {
   localStorage.setItem("Winter@data", JSON.stringify(nlwSetup.data)) //função responsável por guardar no localStorage as informações das datas, através do objeto JSON que transforma o objeto em texto
 }
 
-
 const data = JSON.parse(localStorage.getItem("Winter@data")) || {} // recupera os itens armazenados no localStoragee garante que null vai ser carregado na primeira execução
 nlwSetup.setData(data) // recarrega os itens armazenados
 nlwSetup.load()

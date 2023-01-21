@@ -12,10 +12,16 @@ body {
 }
 
 header {
+  /*======== disposição ==========*/
   display: flex;
   align-items: center;
   justify-content: space-between; /* justifica o conteudo dentro do Header com um espaço no meio dos itens*/
   padding: 48px; /* define um preenchimento em todos os lados*/
+
+  /*======== posicionamento ==========*/
+  position: fixed; /* acaba mudando a camada da declaração quando a propriedade é alterada, o que pode demandar modificações */
+  width: 100%;
+  background-color: #09090a;
 }
 
 button {
@@ -41,8 +47,12 @@ button {
 }
 
 #form-habits {
+  /*======== disposição ==========*/
   display: flex;
-  padding: 0 48px;
+  padding: 182px
+    /* necessária a mudança, de 0 pra 182, devido a mudança de camada do Header*/
+    48px 48px;
+  width: fit-content;
 }
 
 .habits {
@@ -115,6 +125,14 @@ input:checked {
 
   /*=========== borda =============*/
   border: 2px solid #a78bfa;
+}
+
+@media (max-width: 570px) {
+  button div {
+    display: none;
+  }
+  /* responsividade, adaptação para diferentes situações, 
+  diferentes tamanhos de telas nesse caso (mobile first)*/
 }
 
 /*

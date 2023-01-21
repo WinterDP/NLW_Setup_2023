@@ -35,7 +35,7 @@ const nlwSetup = new NLWSetup(form) // ativação da lib
 const addDayButton = document.querySelector("header button") // recebe o botão da página
 
 addDayButton.addEventListener("click", addDate) // atribui um evento ao clique do botão na página
-
+form.addEventListener("change", save)
 //================== Funções ==========================
 
 function addDate() {
@@ -50,17 +50,11 @@ function addDate() {
   }
 }
 
-//utilização da biblioteca para adicionar um habito praticado em uma data
-
-//criação de um objeto data com habitos praticados em determinados dias
-
-/** 
-const data = {
-  run: ["02-02", "02-04", "02-05", "02-06", "02-07", "02-08"], //array de datas no formato necessário mm-dd
-  exercise: ["02-01", "02-04"],
-  walkingDog: ["02-03"],
+function save() {
+  localStorage.setItem("Winter@data", JSON.stringify(nlwSetup.data)) //função responsável por guardar no localStorage as informações das datas, através do objeto JSON que transforma o objeto em texto
 }
 
-nlwSetup.setData(data)
+
+const data = JSON.parse(localStorage.getItem("Winter@data")) || {} // recupera os itens armazenados no localStoragee garante que null vai ser carregado na primeira execução
+nlwSetup.setData(data) // recarrega os itens armazenados
 nlwSetup.load()
-*/

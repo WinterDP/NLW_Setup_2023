@@ -32,16 +32,29 @@ são informações armazenadas de diversas formas, desde textos números ou bool
 /*============== configuração inicial =========== */
 const form = document.querySelector("#form-habits") // atribui o form do HTML como uma variável
 const nlwSetup = new NLWSetup(form) // ativação da lib
+const addDayButton = document.querySelector("header button") // recebe o botão da página
 
-//utilização da biblioteca para adicionar um habito praticado em uma data
+addDayButton.addEventListener("click", addDate) // atribui um evento ao clique do botão na página
+form.addEventListener("change", save)
+//================== Funções ==========================
 
-//criação de um objeto data com habitos praticados em determinados dias
+function addDate() {
+  const today = new Date().toLocaleDateString("pt-br").slice(0, -5) // pega a data do dia de hoje no formato dd/mm/yyyy e recorta os 5 ultimos caracteres da String
 
-const data = {
-  run: ["02-02", "02-04", "02-05", "02-06", "02-07", "02-08"], //array de datas no formato necessário mm-dd
-  exercise: ["02-01", "02-04"],
-  walkingDog: ["02-03"],
+  if (!nlwSetup.dayExists(today)) {
+    //verifica se a data adicionada já existe
+    alert("Adicionado com sucesso ✅")
+    nlwSetup.addDay(today)
+  } else {
+    alert("Dia já incluso ❌")
+  }
 }
 
-nlwSetup.setData(data)
+function save() {
+  localStorage.setItem("Winter@data", JSON.stringify(nlwSetup.data)) //função responsável por guardar no localStorage as informações das datas, através do objeto JSON que transforma o objeto em texto
+}
+
+
+const data = JSON.parse(localStorage.getItem("Winter@data")) || {} // recupera os itens armazenados no localStoragee garante que null vai ser carregado na primeira execução
+nlwSetup.setData(data) // recarrega os itens armazenados
 nlwSetup.load()

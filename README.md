@@ -34,7 +34,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O Habits é um app para ajudar a rastrear os hábitos.
 
-- [Visite o projeto online](WinterDP.github.io/NLW_Setup_2023/)
+- [Visite o projeto online](https://winterdp.github.io/NLW_Setup_2023/)
 
 ## 🔖 Layout
 
@@ -47,5 +47,3 @@ Esse projeto está sob a licença MIT.
 ---
 
 Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
-
-
